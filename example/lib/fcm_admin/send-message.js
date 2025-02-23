@@ -6,7 +6,7 @@ admin.initializeApp({
 });
 
 // 2. Copy the token for your device that is printed in the console on app start (`flutter run`) for the FirebaseMessaging example
-const token = 'cc6NlwGhRPmOZjx51M0Hrx:APA91bHdsvxH8_0llgMsIwsb2NWgCsN8JYlML7LWXRkqG8k1-bDjI-weVYN_CgFkw3SdtZZgVcjvQfWOGO3BDqIMzoQC7CraFO5KnmCYmrMKvVLdMg3XZn0';
+const token = 'c0nFqpKxRouEVvU9LQjw-F:APA91bEv2-kdHIwLAINM5kIh6y_xMt6aCEDkvDQjINALoCuuaKRokHxBfp_FWHcSSqvOwmKvWFUU4H2yMZpPHnMrkSxSktBAAULBpltfju6-wKoOj5_EMdg';
 
 
 // 3. From your terminal, root to example/lib/fcm_admin directory & run `npm install`.
@@ -17,16 +17,17 @@ admin
     .messaging()
     .send(
         {
-            token: token,
+            token: token.trim(),
             data: {
                 foo: 'bar',
             },
             notification: {
-                title: 'A great title',
-                body: 'Great content',
+                title: 'TechMind A great title',
+                body: 'TechMind A Great content',
             },
             android: {
                 priority: 'high',
+                notification: { tag: "Android4" }
             },
             apns: {
                 payload: {

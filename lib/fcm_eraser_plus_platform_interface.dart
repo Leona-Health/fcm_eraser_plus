@@ -1,5 +1,4 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
 import 'fcm_eraser_plus_method_channel.dart';
 
 abstract class FcmEraserPlusPlatform extends PlatformInterface {
@@ -17,9 +16,11 @@ abstract class FcmEraserPlusPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<bool> clearAllNotifications();
+  Future<void> clearAllNotifications();
 
   Future<void> clearByTags({required List<String> tags});
 
-  Future<void> setCountBadge({required int count});
+  Future<void> setCountBadge({required int count, bool isClear = true});
+
+  Future<List<String>> getActiveTags();
 }

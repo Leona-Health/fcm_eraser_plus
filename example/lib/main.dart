@@ -1,11 +1,12 @@
 import 'dart:developer';
-import 'package:fcm_eraser_plus_example/fcm_services/fcm_service.dart';
-import 'package:fcm_eraser_plus_example/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:fcm_eraser_plus/fcm_eraser_plus.dart';
+import 'fcm_services/fcm_service.dart';
+import 'firebase_options.dart';
+import 'widgets/base_button.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -34,8 +35,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _fcmEraserPlusPlugin = FcmEraserPlus.instance;
   final _fcmService = FcmService.instance;
-  late String? _token;
-  bool _isLoading = true;
 
   @override
   void initState() {
@@ -47,16 +46,33 @@ class _MyAppState extends State<MyApp> {
   Future<void> _initFCMService() async {
     await _fcmService.requestPermission();
     await _fcmService.initialize();
+  }
 
-    _token = await _fcmService.getToken();
+  Future<void> _getFcmToken() async {
+    final token = await _fcmService.getToken();
 
-    log('TechMind: $_token');
-    _isLoading = false;
-    setState(() {});
+    log('FCM Token:\n$token');
+  }
+
+  Future<void> _clearAll() async {
+    await _fcmEraserPlusPlugin.clearAllNotifications();
+  }
+
+  Future<void> _clearByTags({required List<String> tags}) async {
+    await _fcmEraserPlusPlugin.clearByTags(tags: tags);
+  }
+
+  Future<void> _getActiveTags() async {
+    final activeTags = await _fcmEraserPlusPlugin.getActiveTags();
+
+    log('Active tags:\n$activeTags');
   }
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.width;
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -69,21 +85,34 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: _isLoading
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : Column(
-                children: [
-                  Center(
-                    child: Text('FCM Token: $_token'),
-                  ),
-                  MaterialButton(
-                    onPressed: () => _fcmEraserPlusPlugin.clearAllNotifications(),
-                    child: Text('Clear all notifications'),
-                  )
-                ],
+        body: Container(
+          padding: const EdgeInsets.all(15),
+          width: width,
+          height: height,
+          child: Column(
+            children: [
+              BaseButton(
+                label: 'Get FCM Token',
+                onTap: _getFcmToken,
               ),
+              const SizedBox(height: 20),
+              BaseButton(
+                label: 'Clear all notifications',
+                onTap: _clearAll,
+              ),
+              const SizedBox(height: 20),
+              BaseButton(
+                label: 'Clear with tags',
+                onTap: () async => _clearByTags(tags: ['TechMind']),
+              ),
+              const SizedBox(height: 20),
+              BaseButton(
+                label: 'Get active tags',
+                onTap: _getActiveTags,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

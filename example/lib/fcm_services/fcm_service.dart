@@ -1,9 +1,10 @@
 import 'dart:developer';
-import 'package:fcm_eraser_plus_example/fcm_services/fcm_interface.dart';
+import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'fcm_interface.dart';
 
 class FcmService implements FcmInterface {
-  static late final FcmService _instance = FcmService._interval();
+  static final FcmService _instance = FcmService._interval();
 
   static FcmService get instance => _instance;
 
@@ -34,9 +35,9 @@ class FcmService implements FcmInterface {
   @override
   Future<String?> getToken() async {
     try {
-      final _fcmToken = await _firebaseMess.getToken();
+      final fcmToken = Platform.isIOS ? await _firebaseMess.getAPNSToken() : await _firebaseMess.getToken();
 
-      return _fcmToken;
+      return fcmToken;
     } catch (e, s) {
       log('Error get device token at $e and $s');
 

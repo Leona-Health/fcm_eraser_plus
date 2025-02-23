@@ -1,7 +1,7 @@
-import 'package:fcm_eraser_plus/fcm_eraser_plus_method_channel.dart';
+import 'fcm_eraser_plus_method_channel.dart';
 
 class FcmEraserPlus {
-  static late final FcmEraserPlus _instance = FcmEraserPlus._interval();
+  static final FcmEraserPlus _instance = FcmEraserPlus._interval();
 
   static FcmEraserPlus get instance => _instance;
 
@@ -11,19 +11,21 @@ class FcmEraserPlus {
 
   final _fcmEraserPlus = MethodChannelFcmEraserPlus();
 
-  Future<bool> clearAllNotifications() async {
-    final status = await _fcmEraserPlus.clearAllNotifications();
-
-    return status;
+  Future<void> clearAllNotifications() async {
+    await _fcmEraserPlus.clearAllNotifications();
   }
 
-  Future<void> clearByTags({required List<String> tags}) {
-    // TODO: implement clearByTags
-    throw UnimplementedError();
+  Future<void> clearByTags({required List<String> tags}) async {
+    await _fcmEraserPlus.clearByTags(tags: tags);
   }
 
-  Future<void> setCountBadge({required int count}) {
-    // TODO: implement setCountBadge
-    throw UnimplementedError();
+  Future<void> setCountBadge({required int count, bool isClear = true}) async {
+    await _fcmEraserPlus.setCountBadge(count: count, isClear: isClear);
+  }
+
+  Future<List<String>> getActiveTags() async {
+    final activeTags = await _fcmEraserPlus.getActiveTags();
+
+    return activeTags;
   }
 }

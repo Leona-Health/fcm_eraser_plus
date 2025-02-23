@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1004875644112:android:7afb8d1979762280b732d5",
+        "mobilesdk_app_id": "1:1004875644112:android:58a6d76dd80c2cb0b732d5",
         "android_client_info": {
-          "package_name": "easer.fcm.plus.fcm_eraser_plus_example"
+          "package_name": "eraser.fcm.plus.fcm_eraser_plus_example"
         }
       },
       "oauth_client": [],

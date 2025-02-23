@@ -13,6 +13,8 @@ dependencies:
   plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
+  flutter_lints: any
+
   flutter_test:
     sdk: flutter
 
@@ -21,7 +23,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: easer.fcm.plus.fcm_eraser_plus
+        package: eraser.fcm.plus.fcm_eraser_plus
         pluginClass: FcmEraserPlusPlugin
       ios:
         pluginClass: FcmEraserPlusPlugin
