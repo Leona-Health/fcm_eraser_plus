@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,10 @@ class _MyAppState extends State<MyApp> {
     log('Active tags:\n$activeTags');
   }
 
+  Future<void> _setBadge({required int count, bool isClear = true}) async {
+    await _fcmEraserPlusPlugin.setBadge(count: count, isClear: isClear);
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -103,12 +108,24 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(height: 20),
               BaseButton(
                 label: 'Clear with tags',
-                onTap: () async => _clearByTags(tags: ['TechMind']),
+                onTap: () async => _clearByTags(tags: ['7BE7A275-E0A3-4DDD-A3BB-14A82ED0BD18']),
               ),
               const SizedBox(height: 20),
               BaseButton(
                 label: 'Get active tags',
                 onTap: _getActiveTags,
+              ),
+              Visibility(
+                visible: Platform.isIOS,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    BaseButton(
+                      label: 'Set count badge',
+                      onTap: () async => _setBadge(count: 9),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

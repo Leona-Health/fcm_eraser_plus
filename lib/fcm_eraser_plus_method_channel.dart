@@ -31,14 +31,14 @@ class MethodChannelFcmEraserPlus extends FcmEraserPlusPlatform {
   }
 
   @override
-  Future<void> setCountBadge({required int count, bool isClear = true}) async {
+  Future<void> setBadge({required int count, bool isClear = true}) async {
     if (Platform.isAndroid) throw ('The func not implemented on Android.');
 
     try {
       await _methodChannel.invokeMethod<bool>(
         MethodsConstant.SET_BADGE,
         <String, dynamic>{
-          KeysConstant.BADGE: count,
+          KeysConstant.COUNT: count,
           KeysConstant.IS_CLEAR: isClear,
         },
       );

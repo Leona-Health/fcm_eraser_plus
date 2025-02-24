@@ -1,8 +1,8 @@
 import Foundation
 
-enum KeysConstant{
+enum KeysConstant {
     static let TAGS = "tags"
     static let COUNT = "count"
     static let IS_CLEAR = "is_clear"
-    
+
 }

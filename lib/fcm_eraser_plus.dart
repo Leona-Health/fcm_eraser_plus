@@ -19,8 +19,8 @@ class FcmEraserPlus {
     await _fcmEraserPlus.clearByTags(tags: tags);
   }
 
-  Future<void> setCountBadge({required int count, bool isClear = true}) async {
-    await _fcmEraserPlus.setCountBadge(count: count, isClear: isClear);
+  Future<void> setBadge({required int count, bool isClear = true}) async {
+    await _fcmEraserPlus.setBadge(count: count, isClear: isClear);
   }
 
   Future<List<String>> getActiveTags() async {

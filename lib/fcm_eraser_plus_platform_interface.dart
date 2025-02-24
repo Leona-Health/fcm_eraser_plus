@@ -20,7 +20,7 @@ abstract class FcmEraserPlusPlatform extends PlatformInterface {
 
   Future<void> clearByTags({required List<String> tags});
 
-  Future<void> setCountBadge({required int count, bool isClear = true});
+  Future<void> setBadge({required int count, bool isClear = true});
 
   Future<List<String>> getActiveTags();
 }
