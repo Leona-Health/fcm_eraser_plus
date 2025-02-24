@@ -50,7 +50,8 @@ class MethodChannelFcmEraserPlus extends FcmEraserPlusPlatform {
   @override
   Future<List<String>> getActiveTags() async {
     try {
-      final response = await _methodChannel.invokeMethod<List<Object?>>(MethodsConstant.ACTIVE_TAGS);
+      final response = await _methodChannel
+          .invokeMethod<List<Object?>>(MethodsConstant.ACTIVE_TAGS);
 
       final activeTags = response?.map((e) => e.toString()).toList() ?? [];
 

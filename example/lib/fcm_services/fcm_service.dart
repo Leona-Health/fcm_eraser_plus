@@ -35,7 +35,9 @@ class FcmService implements FcmInterface {
   @override
   Future<String?> getToken() async {
     try {
-      final fcmToken = Platform.isIOS ? await _firebaseMess.getAPNSToken() : await _firebaseMess.getToken();
+      final fcmToken = Platform.isIOS
+          ? await _firebaseMess.getAPNSToken()
+          : await _firebaseMess.getToken();
 
       return fcmToken;
     } catch (e, s) {

@@ -108,7 +108,9 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(height: 20),
               BaseButton(
                 label: 'Clear with tags',
-                onTap: () async => _clearByTags(tags: ['7BE7A275-E0A3-4DDD-A3BB-14A82ED0BD18']),
+                onTap: () async => _clearByTags(
+                  tags: ['7BE7A275-E0A3-4DDD-A3BB-14A82ED0BD18'],
+                ),
               ),
               const SizedBox(height: 20),
               BaseButton(
