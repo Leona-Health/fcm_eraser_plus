@@ -33,7 +33,7 @@ flutter pub get
 
 | Feature                                                        | Android   | iOS   | Description                                                  |
 | -------------------------------------------------------------- | --------- | ----- | -------------                                                |
-| [Clear all notifications][def]         | ✅        | ✅    | Removes all active notifications from the system tray.      |
+| [Clear all notifications](#1️⃣-clear-all-notifications)         | ✅        | ✅    | Removes all active notifications from the system tray.      |
 | [Clear notification by TAGS](#2️⃣-clear-notification-by-tags)     | ✅        | ✅    | Delete multiple notifications using a list of their tag identifiers. |
 | [Set badge count](#3️⃣-set-badge-count-on-ios)               | ❌        | ✅    | Sets the badge number on the app icon for iOS.               |
 | [Get active tag notifications](#4️⃣-get-active-tag-notifications) | ✅        | ✅    | Get the list of tags for active notifications.  |
