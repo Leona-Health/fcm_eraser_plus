@@ -6,7 +6,7 @@ admin.initializeApp({
 });
 
 // 2. Copy the token for your device that is printed in the console on app start (`flutter run`) for the FirebaseMessaging example
-const token = 'c0nFqpKxRouEVvU9LQjw-F:APA91bEv2-kdHIwLAINM5kIh6y_xMt6aCEDkvDQjINALoCuuaKRokHxBfp_FWHcSSqvOwmKvWFUU4H2yMZpPHnMrkSxSktBAAULBpltfju6-wKoOj5_EMdg';
+const token = 'YOUR_FCM_TOKEN';
 
 
 // 3. From your terminal, root to example/lib/fcm_admin directory & run `npm install`.
