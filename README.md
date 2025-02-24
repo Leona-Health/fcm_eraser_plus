@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://private-user-images.githubusercontent.com/86840994/416116811-5125ccf4-5ed5-4763-8da9-1a49a37656a2.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDAzODczNjYsIm5iZiI6MTc0MDM4NzA2NiwicGF0aCI6Ii84Njg0MDk5NC80MTYxMTY4MTEtNTEyNWNjZjQtNWVkNS00NzYzLThkYTktMWE0OWEzNzY1NmEyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAyMjQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMjI0VDA4NTEwNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ1ZjFkZjJkZDM4MTUxNzEzN2VkYzNiNGJmZTYyNWJkNjVjNGRlOWE5NzE5N2FjMGQ2MTNjOTdmNGFiMzk3ZmQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.LThAFT6HpN1W5a5k6lvmFuWPMP1NOx7Ou29VjXSlk7c" height="150" alt="auto_route_logo">
+  <img src="https://github.com/user-attachments/assets/b1091ef0-d96f-4f88-9c26-0185ee5c1915" height="150" alt="auto_route_logo">
 </p>
 
 <p align="center" style="font-size: 20px; font-weight: bold; margin: 0 auto; width: 80%; margin-bottom: 10px;">
