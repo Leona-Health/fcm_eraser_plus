@@ -11,10 +11,18 @@ class NotificationService: NotificationProtocal {
         if tags.isEmpty {
             return
         }
+        
+        
+        UNUserNotificationCenter.current().getDeliveredNotifications {
+            notifications in
 
-        UNUserNotificationCenter.current().removeDeliveredNotifications(
-            withIdentifiers: tags)
-
+            let notifications = notifications.filter { tags.contains($0.request.content.threadIdentifier) }
+            
+            let identifiers = notifications.map(\request.identifier)
+            
+            UNUserNotificationCenter.current().removeDeliveredNotifications(
+                withIdentifiers: idetifiers)
+        }
     }
 
     func setBadges(count: Int, isClear: Bool) {
@@ -29,7 +37,7 @@ class NotificationService: NotificationProtocal {
     func getActiveTags(completion: @escaping ([String]) -> Void) {
         UNUserNotificationCenter.current().getDeliveredNotifications {
             notifications in
-            let tags = notifications.map { $0.request.identifier }
+            let tags = notifications.map { $0.request.content.threadIdentifier }
             completion(tags)
         }
     }
