@@ -16,11 +16,13 @@ class NotificationService: NotificationProtocal {
         UNUserNotificationCenter.current().getDeliveredNotifications {
             notifications in
 
-            let matching = notifications.filter { n in 
-		tags.contains(n.request.content.threadIdentifier) 
-	    }
+            let matching = notifications.filter { n in
+                tags.contains(n.request.content.threadIdentifier)
+            }
             
-            let identifiers = matching.map(\request.identifier)
+            let identifiers = matching.map{n in
+                n.request.identifier
+            }
             
             UNUserNotificationCenter.current().removeDeliveredNotifications(
                 withIdentifiers: identifiers)
